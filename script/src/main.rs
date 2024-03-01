@@ -25,11 +25,12 @@ fn main() {
 
     // Verify proof.
     SP1Verifier::verify(ELF, &proof).expect("SP1 verification failed");
+    println!("SP1 proof verified successfully");
+
+    let sp1_proof_path = "proof-with-io.json";
 
     // Save proof.
-    proof
-        .save("proof-with-io.json")
-        .expect("saving proof failed");
+    proof.save(sp1_proof_path).expect("saving proof failed");
 
-    println!("Success")
+    println!("Proof saved in {}", sp1_proof_path);
 }

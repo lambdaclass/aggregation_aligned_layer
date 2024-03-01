@@ -40,3 +40,9 @@ RUST_LOG=info cargo run --release
 ```
 
 After a successfull run, the proof will be written into `proof-with-io.json`.
+
+**NOTE**: When reading the PLONK verification result from the program output, the script panics. However, this does not affect the proof generation. For the moment that code is commented until we have more information about what is happening under the hood.
+
+## Acknoledgements
+
+Thanks to [SuccintLabs](https://succinct.xyz/) for the development of the [SP1 zkVM](https://github.com/succinctlabs/sp1) which was used for this proof of concept.
