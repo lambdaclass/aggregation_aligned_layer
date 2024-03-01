@@ -7,6 +7,7 @@ fn main() {
     sp1_core::utils::setup_logger();
 
     let mut stdin = SP1Stdin::new();
+    // The paths where the PLONK proof and verification key should be found
     let proof_file_path = "../../program/proving_data/plonk_simple_mul.proof";
     let vk_file_path = "../../program/proving_data/plonk_vk.bin";
 
@@ -27,10 +28,8 @@ fn main() {
     SP1Verifier::verify(ELF, &proof).expect("SP1 verification failed");
     println!("SP1 proof verified successfully");
 
-    let sp1_proof_path = "proof-with-io.json";
-
     // Save proof.
+    let sp1_proof_path = "proof-with-io.json";
     proof.save(sp1_proof_path).expect("saving proof failed");
-
-    println!("Proof saved in {}", sp1_proof_path);
+    println!("Proof saved to {}", sp1_proof_path);
 }
