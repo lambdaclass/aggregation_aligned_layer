@@ -672,6 +672,48 @@ dependencies = [
 ]
 
 [[package]]
+name = "keccak"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ecc2af9a1119c51f12a14607e783cb977bde58bc069ff0c3da1095e635d70654"
+dependencies = [
+ "cpufeatures",
+]
+
+[[package]]
+name = "lambdaworks-crypto"
+version = "0.5.0"
+source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#3e9fdad89a6b6bb270f358c7b571ecfd9c177413"
+dependencies = [
+ "lambdaworks-math",
+ "sha2",
+ "sha3",
+]
+
+[[package]]
+name = "lambdaworks-math"
+version = "0.5.0"
+source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#3e9fdad89a6b6bb270f358c7b571ecfd9c177413"
+dependencies = [
+ "rayon",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "lambdaworks-plonk"
+version = "0.1.0"
+source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#3e9fdad89a6b6bb270f358c7b571ecfd9c177413"
+dependencies = [
+ "lambdaworks-crypto",
+ "lambdaworks-math",
+ "serde",
+ "serde_json",
+ "sha2",
+ "sha3",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1375,6 +1417,8 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 name = "script"
 version = "0.1.0"
 dependencies = [
+ "lambdaworks-math",
+ "lambdaworks-plonk",
  "sp1-core",
 ]
 
@@ -1463,6 +1507,16 @@ dependencies = [
  "cfg-if",
  "cpufeatures",
  "digest",
+]
+
+[[package]]
+name = "sha3"
+version = "0.10.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "75872d278a8f37ef87fa0ddbda7802605cb18344497949862c0d4dcb291eba60"
+dependencies = [
+ "digest",
+ "keccak",
 ]
 
 [[package]]

@@ -5,3 +5,5 @@ edition = "2021"
 
 [dependencies]
 sp1-core = { git = "https://github.com/succinctlabs/sp1.git" }
+lambdaworks-plonk = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
+lambdaworks-math = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
