@@ -29,7 +29,7 @@ fn main() {
     stdin.write_slice(&CAIRO_PROOF);
     // stdin.write(&vk_file_path);
 
-    let proof = SP1Prover::prove(ELF, stdin).expect("proving failed");
+    let mut proof = SP1Prover::prove(ELF, stdin).expect("proving failed");
 
     // NOTE(marian): It currently panics if we uncomment this code. We should see why is
     // this happening.
@@ -43,6 +43,9 @@ fn main() {
     SP1Verifier::verify(ELF, &proof).expect("SP1 verification failed");
     println!("SP1 proof verified successfully");
 
+    let verification_result = proof.stdout.read::<bool>();
+
+    println!("CAIRO verification result: {}", verification_result);
     // Save proof.
     // let sp1_proof_path = "proof-with-io.json";
     // proof.save(sp1_proof_path).expect("saving proof failed");
