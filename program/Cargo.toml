@@ -1,0 +1,9 @@
+[package]
+name = "sp1-lambdaworks-plonk-verifier"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lambdaworks-plonk = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
+lambdaworks-math = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
+sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
