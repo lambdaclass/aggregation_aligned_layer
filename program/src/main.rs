@@ -9,12 +9,15 @@ use lambdaworks_math::elliptic_curve::short_weierstrass::curves::bls12_381::twis
 use lambdaworks_math::elliptic_curve::short_weierstrass::point::ShortWeierstrassProjectivePoint;
 use lambdaworks_math::traits::Deserializable;
 use lambdaworks_plonk::prover::Proof;
+use lambdaworks_plonk::setup::CommonPreprocessedInput;
 use lambdaworks_plonk::setup::VerificationKey;
 use lambdaworks_plonk::test_utils::circuit_1::test_common_preprocessed_input_1;
 use lambdaworks_plonk::test_utils::utils::KZG;
 use lambdaworks_plonk::verifier::Verifier;
 
 fn main() {
+    let mut circuit_bytes = [0u8; 1944];
+    sp1_zkvm::io::read_slice(&mut circuit_bytes);
     let mut proof_bytes = [0u8; 1620];
     sp1_zkvm::io::read_slice(&mut proof_bytes);
     let mut srs_bytes = [0u8; 1596];
@@ -28,7 +31,9 @@ fn main() {
     //  private input e
     //  z = x * e
     //  assert y == z
-    let circuit = test_common_preprocessed_input_1();
+    // let circuit = test_common_preprocessed_input_1();
+    let circuit: CommonPreprocessedInput<FrField> =
+        bincode::deserialize(&circuit_bytes).expect("Could not deserialize circuit");
 
     let srs: StructuredReferenceString<
         ShortWeierstrassProjectivePoint<BLS12381Curve>,

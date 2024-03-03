@@ -10,3 +10,4 @@ lambdaworks-plonk = { git = "https://github.com/lambdaclass/lambdaworks", branch
 lambdaworks-math = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
 lambdaworks-crypto = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
 sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
+bincode = "1.3.3"
