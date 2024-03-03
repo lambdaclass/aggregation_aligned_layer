@@ -11,7 +11,6 @@ use lambdaworks_math::traits::Deserializable;
 use lambdaworks_plonk::prover::Proof;
 use lambdaworks_plonk::setup::CommonPreprocessedInput;
 use lambdaworks_plonk::setup::VerificationKey;
-use lambdaworks_plonk::test_utils::circuit_1::test_common_preprocessed_input_1;
 use lambdaworks_plonk::test_utils::utils::KZG;
 use lambdaworks_plonk::verifier::Verifier;
 
@@ -41,7 +40,6 @@ fn main() {
     > = StructuredReferenceString::deserialize(&srs_bytes).expect("Could not deserialize SRS");
 
     let kzg = KZG::new(srs);
-
     let x: FrElement = FrElement::from(4_u64);
     let y: FrElement = FrElement::from(12_u64);
     let pub_input = vec![x, y];
