@@ -8,4 +8,5 @@ edition = "2021"
 # program to be verified with SP1 does less work.
 lambdaworks-plonk = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
 lambdaworks-math = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
+lambdaworks-crypto = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
 sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }

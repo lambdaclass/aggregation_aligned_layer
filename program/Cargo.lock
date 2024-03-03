@@ -274,6 +274,7 @@ version = "0.5.0"
 source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#70276ad3550d498f8192e8ac21999444d2a39102"
 dependencies = [
  "lambdaworks-math",
+ "serde",
  "sha2",
  "sha3",
 ]
@@ -505,6 +506,7 @@ dependencies = [
 name = "sp1-lambdaworks-plonk-verifier"
 version = "0.1.0"
 dependencies = [
+ "lambdaworks-crypto",
  "lambdaworks-math",
  "lambdaworks-plonk",
  "sp1-zkvm",
