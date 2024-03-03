@@ -12,11 +12,8 @@ fn main() {
 
     let mut stdin = SP1Stdin::new();
 
-    println!("PLONK PROOF LEN: {}", PLONK_PROOF.len());
-    println!("PLONK SRS LEN: {}", PLONK_SRS.len());
-    println!("PLONK VK LEN: {}", PLONK_VK.len());
-
     stdin.write_slice(&PLONK_PROOF);
+    stdin.write_slice(&PLONK_SRS);
     stdin.write_slice(&PLONK_VK);
 
     let mut proof = SP1Prover::prove(ELF, stdin).expect("proving failed");

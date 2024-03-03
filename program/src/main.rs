@@ -11,7 +11,6 @@ use lambdaworks_math::traits::Deserializable;
 use lambdaworks_plonk::prover::Proof;
 use lambdaworks_plonk::setup::VerificationKey;
 use lambdaworks_plonk::test_utils::circuit_1::test_common_preprocessed_input_1;
-use lambdaworks_plonk::test_utils::utils::test_srs;
 use lambdaworks_plonk::test_utils::utils::KZG;
 use lambdaworks_plonk::verifier::Verifier;
 
@@ -30,7 +29,6 @@ fn main() {
     //  z = x * e
     //  assert y == z
     let circuit = test_common_preprocessed_input_1();
-    // let srs = test_srs(circuit.n);
 
     let srs: StructuredReferenceString<
         ShortWeierstrassProjectivePoint<BLS12381Curve>,
