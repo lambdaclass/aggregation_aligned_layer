@@ -504,10 +504,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "sp1-lambdaworks-plonk-verifier"
+name = "sp1-lambdaworks-pairing-verifier"
 version = "0.1.0"
 dependencies = [
- "bincode",
  "lambdaworks-crypto",
  "lambdaworks-math",
  "lambdaworks-plonk",
