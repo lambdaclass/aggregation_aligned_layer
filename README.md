@@ -1,4 +1,4 @@
-# SP1 over PLONK
+# SP1 ZK verifiers 
 
 ## SP1 toolchain setup
 
@@ -19,6 +19,19 @@ Verify your installation running
 cargo prove --version
 ```
 
+## Build the arkworks pairing verification program
+
+Once the SP1 toolchain is installed, move to the `program` folder and compile to the SP1 zkVM target
+
+```bash
+make build_ark_pairing_program 
+```
+
+## Generate proof of the pairing verification
+
+```bash
+make sp1_prove_ark_pairing
+```
 
 ## Build Lambdaworks PLONK verifier program
 
