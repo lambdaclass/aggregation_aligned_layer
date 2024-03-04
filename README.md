@@ -34,13 +34,23 @@ make build_ark_pairing_program
 make sp1_prove_ark_pairing
 ```
 
+# Lambdaworks pairing verification
+## Build the arkworks pairing verification program
+```bash
+make build_lw_pairing_program 
+```
+
+## Generate proof of the pairing verification
+
+```bash
+make sp1_prove_lw_pairing
+```
+
 # Arkworks Groth16 verifier (WIP)
 
 # Lambdaworks PLONK verifier
 
 ## Build Lambdaworks PLONK verifier program
-
-Once the SP1 toolchain is installed, move to the `program` folder and compile to the SP1 zkVM target
 
 ```bash
 cd program

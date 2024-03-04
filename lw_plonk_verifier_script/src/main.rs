@@ -1,12 +1,14 @@
 //! A simple script to generate and verify the proof of a given program.
 use sp1_core::{SP1Prover, SP1Stdin, SP1Verifier};
 
-const ELF: &[u8] = include_bytes!("../../program/elf/riscv32im-succinct-zkvm-elf");
+const ELF: &[u8] = include_bytes!("../../lw_plonk_verifier/elf/riscv32im-succinct-zkvm-elf");
 
-const PLONK_CIRCUIT: &[u8] = include_bytes!("../../program/proving_data/plonk_circuit.bin");
-const PLONK_PROOF: &[u8] = include_bytes!("../../program/proving_data/plonk_simple_mul.proof");
-const PLONK_SRS: &[u8] = include_bytes!("../../program/proving_data/plonk_srs.bin");
-const PLONK_VK: &[u8] = include_bytes!("../../program/proving_data/plonk_vk.bin");
+const PLONK_CIRCUIT: &[u8] =
+    include_bytes!("../../lw_plonk_verifier/proving_data/plonk_circuit.bin");
+const PLONK_PROOF: &[u8] =
+    include_bytes!("../../lw_plonk_verifier/proving_data/plonk_simple_mul.proof");
+const PLONK_SRS: &[u8] = include_bytes!("../../lw_plonk_verifier/proving_data/plonk_srs.bin");
+const PLONK_VK: &[u8] = include_bytes!("../../lw_plonk_verifier/proving_data/plonk_vk.bin");
 
 fn main() {
     sp1_core::utils::setup_logger();

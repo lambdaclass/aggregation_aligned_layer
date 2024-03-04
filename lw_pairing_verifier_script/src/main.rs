@@ -1,7 +1,7 @@
 //! A simple script to generate and verify the proof of a given program.
 use sp1_core::{SP1Prover, SP1Stdin, SP1Verifier};
 
-const ELF: &[u8] = include_bytes!("../../pairing_verifier/elf/riscv32im-succinct-zkvm-elf");
+const ELF: &[u8] = include_bytes!("../../lw_pairing_verifier/elf/riscv32im-succinct-zkvm-elf");
 
 fn main() {
     sp1_core::utils::setup_logger();

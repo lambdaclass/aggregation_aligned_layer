@@ -8,7 +8,6 @@ use lambdaworks_math::elliptic_curve::short_weierstrass::curves::bls12_381::twis
 use lambdaworks_math::elliptic_curve::traits::IsEllipticCurve;
 use lambdaworks_math::elliptic_curve::traits::IsPairing;
 use lambdaworks_math::field::element::FieldElement;
-use lambdaworks_math::unsigned_integer::element::U384;
 
 fn main() {
     let p = BLS12381Curve::generator();
