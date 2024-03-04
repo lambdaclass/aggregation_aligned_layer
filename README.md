@@ -46,8 +46,6 @@ make build_lw_pairing_program
 make sp1_prove_lw_pairing
 ```
 
-## Arkworks Groth16 verifier (WIP)
-
 ## Lambdaworks PLONK verifier
 
 ### Build Lambdaworks PLONK verifier program
@@ -61,6 +59,8 @@ make build_lw_plonk_program
 ```bash
 make sp1_prove_lw_plonk
 ```
+
+## Arkworks Groth16 verifier (WIP)
 
 ## Acknoledgements
 
