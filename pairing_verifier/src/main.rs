@@ -13,23 +13,26 @@ use lambdaworks_math::unsigned_integer::element::U384;
 fn main() {
     let p = BLS12381Curve::generator();
     let q = BLS12381TwistCurve::generator();
-    let a = U384::from_u64(11);
-    let b = U384::from_u64(93);
+    // let a = U384::from_u64(11);
+    // let b = U384::from_u64(93);
 
-    // let result = BLS12381AtePairing::compute_batch(&[
-    //     (
-    //         &p.operate_with_self(a).to_affine(),
-    //         &q.operate_with_self(b).to_affine(),
-    //     ),
-    //     (
-    //         &p.operate_with_self(a * b).to_affine(),
-    //         &q.neg().to_affine(),
-    //     ),
-    // ])
-    // .unwrap();
+    let result = BLS12381AtePairing::compute_batch(&[
+        (
+            &p,
+            &q, // &p.operate_with_self(a).to_affine(),
+               // &q.operate_with_self(b).to_affine(),
+        ),
+        (
+            // &p.operate_with_self(a * b).to_affine(),
+            // &q.neg().to_affine(),
+            &p,
+            &q.neg(),
+        ),
+    ])
+    .unwrap();
 
-    // let verification_result = result == FieldElement::one();
-    let verification_result = true;
+    let verification_result = result == FieldElement::one();
+    // let verification_result = true;
 
     // We write the result of the verification into the output.
     sp1_zkvm::io::write::<bool>(&verification_result);
