@@ -12,7 +12,7 @@ fn main() {
     let pairing_verification_result = proof.stdout.read::<bool>();
     println!(
         "Pairing proof verification result: {}",
-        plonk_verification_result
+        pairing_verification_result
     );
 
     // Verify proof.
