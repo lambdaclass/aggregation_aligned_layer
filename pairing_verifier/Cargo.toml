@@ -1,0 +1,13 @@
+[package]
+name = "sp1-lambdaworks-plonk-verifier"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# NOTE(marian): We are using this branch since a serialization of the PLONK verifying keys was implemented so that the 
+# program to be verified with SP1 does less work.
+lambdaworks-plonk = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
+lambdaworks-math = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization", features = ["lambdaworks-serde-binary"] } 
+lambdaworks-crypto = { git = "https://github.com/lambdaclass/lambdaworks", branch = "add-verification-key-serialization" } 
+sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
+bincode = "1.3.3"
