@@ -14,6 +14,10 @@ fn main() {
 
     let mut stdin = SP1Stdin::new();
 
+    // println!("PROOF SIZE: {}", G16_PROOF.len());
+    // println!("PVK SIZE: {}", PVK.len());
+    // println!("PUB INPUT SIZE: {}", PUB_INPUT.len());
+
     stdin.write_slice(&G16_PROOF);
     stdin.write_slice(&PUB_INPUT);
     stdin.write_slice(&PVK);

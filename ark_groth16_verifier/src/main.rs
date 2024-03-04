@@ -8,11 +8,11 @@ use ark_groth16::{Groth16, PreparedVerifyingKey, Proof};
 use ark_serialize::*;
 
 fn main() {
-    let mut proof_bytes = [0u8; 384];
+    let mut proof_bytes = [0u8; 256];
     sp1_zkvm::io::read_slice(&mut proof_bytes);
     let mut pub_input_bytes = [0u8; 32];
     sp1_zkvm::io::read_slice(&mut pub_input_bytes);
-    let mut pvk_bytes = [0u8; 41210];
+    let mut pvk_bytes = [0u8; 35930];
     sp1_zkvm::io::read_slice(&mut pvk_bytes);
 
     let proof = Proof::deserialize_uncompressed(proof_bytes.as_slice()).unwrap();
