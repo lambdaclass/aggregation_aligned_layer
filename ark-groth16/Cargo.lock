@@ -15,10 +15,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "ark-bls12-377"
+name = "ark-bn254"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fb00293ba84f51ce3bd026bd0de55899c4e68f0a39a5728cebae3a73ffdc0a4f"
+checksum = "a22f4561524cd949590d78d7d4c5df8f592430d221f7f3c9497bbafd8972120f"
 dependencies = [
  "ark-ec",
  "ark-ff",
@@ -110,7 +110,7 @@ dependencies = [
 name = "ark-groth16"
 version = "0.1.0"
 dependencies = [
- "ark-bls12-377",
+ "ark-bn254",
  "ark-crypto-primitives",
  "ark-ff",
  "ark-groth16 0.4.0",

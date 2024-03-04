@@ -1,7 +1,7 @@
 #![no_main]
 sp1_zkvm::entrypoint!(main);
 
-use ark_bls12_377::{Bls12_377, FrConfig};
+use ark_bn254::{Bn254, FrConfig};
 use ark_crypto_primitives::snark::SNARK;
 use ark_ff::{Fp, MontBackend};
 use ark_groth16::{Groth16, PreparedVerifyingKey, Proof};
@@ -21,7 +21,7 @@ fn main() {
     let pvk = PreparedVerifyingKey::deserialize_uncompressed(pvk_bytes.as_slice()).unwrap();
 
     let verification_result =
-        Groth16::<Bls12_377>::verify_with_processed_vk(&pvk, &[image], &proof).unwrap();
+        Groth16::<Bn254>::verify_with_processed_vk(&pvk, &[image], &proof).unwrap();
 
     // We write the result of the verification into the output.
     sp1_zkvm::io::write::<bool>(&verification_result);
