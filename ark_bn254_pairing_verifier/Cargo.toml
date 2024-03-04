@@ -1,0 +1,12 @@
+[package]
+name = "sp1-ark-bn254-pairing-verifier"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# NOTE(marian): We are using this branch since a serialization of the PLONK verifying keys was implemented so that the 
+# program to be verified with SP1 does less work.
+sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
+ark-ec = "0.4.2"
+ark-ff = "0.4.2"
+ark-bn254 = "0.4.0"
