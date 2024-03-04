@@ -271,9 +271,10 @@ dependencies = [
 [[package]]
 name = "lambdaworks-crypto"
 version = "0.5.0"
-source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#70276ad3550d498f8192e8ac21999444d2a39102"
+source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#5ce06c2e992f94da15c1ce399011dfa0cdee80cb"
 dependencies = [
  "lambdaworks-math",
+ "serde",
  "sha2",
  "sha3",
 ]
@@ -281,7 +282,7 @@ dependencies = [
 [[package]]
 name = "lambdaworks-math"
 version = "0.5.0"
-source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#70276ad3550d498f8192e8ac21999444d2a39102"
+source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#5ce06c2e992f94da15c1ce399011dfa0cdee80cb"
 dependencies = [
  "rayon",
  "serde",
@@ -291,8 +292,9 @@ dependencies = [
 [[package]]
 name = "lambdaworks-plonk"
 version = "0.1.0"
-source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#70276ad3550d498f8192e8ac21999444d2a39102"
+source = "git+https://github.com/lambdaclass/lambdaworks?branch=add-verification-key-serialization#5ce06c2e992f94da15c1ce399011dfa0cdee80cb"
 dependencies = [
+ "bincode",
  "lambdaworks-crypto",
  "lambdaworks-math",
  "serde",
@@ -505,6 +507,8 @@ dependencies = [
 name = "sp1-lambdaworks-plonk-verifier"
 version = "0.1.0"
 dependencies = [
+ "bincode",
+ "lambdaworks-crypto",
  "lambdaworks-math",
  "lambdaworks-plonk",
  "sp1-zkvm",
@@ -513,7 +517,7 @@ dependencies = [
 [[package]]
 name = "sp1-precompiles"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#c2e012f6bf0aa5d973d29638b333a03d7749c341"
+source = "git+https://github.com/succinctlabs/sp1.git#ef6887b76f451da6f703ee9802cf88f182ebc32c"
 dependencies = [
  "anyhow",
  "bincode",
@@ -527,7 +531,7 @@ dependencies = [
 [[package]]
 name = "sp1-zkvm"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#c2e012f6bf0aa5d973d29638b333a03d7749c341"
+source = "git+https://github.com/succinctlabs/sp1.git#ef6887b76f451da6f703ee9802cf88f182ebc32c"
 dependencies = [
  "bincode",
  "cfg-if",
