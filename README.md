@@ -19,10 +19,21 @@ Verify your installation running
 cargo prove --version
 ```
 
-## Arkworks pairing verification
+## Arkworks BN254 pairing verification
 ### Build the arkworks pairing verification program
 
-Once the SP1 toolchain is installed, move to the `program` folder and compile to the SP1 zkVM target
+```bash
+make build_ark_bn254_pairing_program 
+```
+
+### Generate proof of the pairing verification
+
+```bash
+make sp1_prove_ark_bn254_pairing
+```
+
+## Arkworks BLS12-381 pairing verification
+### Build the arkworks pairing verification program
 
 ```bash
 make build_ark_pairing_program 
