@@ -1,5 +1,3 @@
-.PHONY: build_ark_pairing_program
-
 build_ark_pairing_program:
 	cd ark_pairing_verifier && cargo prove build
 
