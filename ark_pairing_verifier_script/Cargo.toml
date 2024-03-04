@@ -1,5 +1,5 @@
 [package]
-name = "pairing-script"
+name = "ark-pairing-script"
 version = "0.1.0"
 edition = "2021"
 
