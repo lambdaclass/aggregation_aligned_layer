@@ -14,7 +14,7 @@ use std::time::{Duration, Instant};
 
 // Bring in some tools for using pairing-friendly curves
 // We're going to use the BLS12-377 pairing-friendly elliptic curve.
-use ark_bls12_377::{Bls12_377, Fr, FrConfig};
+use ark_bn254::{Bn254, Fr, FrConfig};
 use ark_ff::{Field, Fp, MontBackend};
 
 // We'll use these interfaces to construct our circuit.
@@ -142,14 +142,14 @@ fn main() {
             constants: &constants,
         };
 
-        Groth16::<Bls12_377>::setup(c, &mut rng).unwrap()
+        Groth16::<Bn254>::setup(c, &mut rng).unwrap()
     };
 
     // Prepare the verification key (for proof verification)
-    // let pvk = Groth16::<Bls12_377>::process_vk(&vk).unwrap();
+    let pvk = Groth16::<Bn254>::process_vk(&vk).unwrap();
 
-    // let groth_pvk_file = std::fs::File::create("groth_pvk.bin").unwrap();
-    // pvk.serialize_uncompressed(&groth_pvk_file).unwrap();
+    let groth_pvk_file = std::fs::File::create("groth_pvk.bin").unwrap();
+    pvk.serialize_uncompressed(&groth_pvk_file).unwrap();
 
     println!("Creating proofs...");
 
@@ -166,10 +166,10 @@ fn main() {
         // Generate a random preimage and compute the image
         let xl = rng.gen();
         let xr = rng.gen();
-        // let image = mimc(xl, xr, &constants);
+        let image = mimc(xl, xr, &constants);
 
-        // let image_file = std::fs::File::create("groth16_pub_input.bin").unwrap();
-        // image.serialize_uncompressed(&image_file).unwrap();
+        let image_file = std::fs::File::create("groth16_pub_input.bin").unwrap();
+        image.serialize_uncompressed(&image_file).unwrap();
 
         // proof_vec.truncate(0);
 
@@ -184,17 +184,17 @@ fn main() {
             };
 
             // // Create a groth16 proof with our parameters.
-            // let groth16_proof_file = std::fs::File::create("mimc_groth16.proof").unwrap();
-            // let proof = Groth16::<Bls12_377>::prove(&pk, c, &mut rng).unwrap();
+            let groth16_proof_file = std::fs::File::create("mimc_groth16.proof").unwrap();
+            let proof = Groth16::<Bn254>::prove(&pk, c, &mut rng).unwrap();
 
-            // proof.serialize_uncompressed(&groth16_proof_file).unwrap();
+            proof.serialize_uncompressed(&groth16_proof_file).unwrap();
 
             let mut buffer = [0u8; 500];
             let n_bytes = std::fs::File::open("mimc_groth16.proof")
                 .unwrap()
                 .read(&mut buffer)
                 .unwrap();
-            let proof_deserialized: Proof<Bls12_377> =
+            let proof_deserialized: Proof<Bn254> =
                 Proof::deserialize_uncompressed(&buffer[..n_bytes]).unwrap();
 
             let mut buffer = [0u8; 50 * 1024];
@@ -202,7 +202,7 @@ fn main() {
                 .unwrap()
                 .read(&mut buffer)
                 .unwrap();
-            let pvk_deserialized: PreparedVerifyingKey<Bls12_377> =
+            let pvk_deserialized: PreparedVerifyingKey<Bn254> =
                 PreparedVerifyingKey::deserialize_uncompressed(&buffer[..n_bytes]).unwrap();
 
             let mut buffer = [0u8; 500];
@@ -213,7 +213,7 @@ fn main() {
             let image_deserialized: Fp<MontBackend<FrConfig, 4>, 4> =
                 Fp::deserialize_uncompressed(&buffer[..n_bytes]).unwrap();
 
-            assert!(Groth16::<Bls12_377>::verify_with_processed_vk(
+            assert!(Groth16::<Bn254>::verify_with_processed_vk(
                 &pvk_deserialized,
                 &[image_deserialized],
                 &proof_deserialized
