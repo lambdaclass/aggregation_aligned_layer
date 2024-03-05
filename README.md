@@ -1,4 +1,4 @@
-# SP1 zk-verifiers 
+# Aggregataion Aligned Layer 
 
 ## SP1 toolchain setup
 
