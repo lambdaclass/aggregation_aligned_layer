@@ -9,10 +9,10 @@ pub const FIBONACCI_GUEST_ID: [u32; 8] = [
 
 fn main() {
     let mut receipt_bytes = [0u8; 215514];
-    // sp1_zkvm::io::read_slice(&mut receipt_bytes);
+    sp1_zkvm::io::read_slice(&mut receipt_bytes);
 
     let receipt: Receipt = bincode::deserialize(&receipt_bytes).unwrap();
     let verification_result = receipt.verify(FIBONACCI_GUEST_ID).is_ok();
 
-    // sp1_zkvm::io::write::<bool>(&verification_result);
+    sp1_zkvm::io::write::<bool>(&verification_result);
 }

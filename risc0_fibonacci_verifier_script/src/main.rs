@@ -2,7 +2,7 @@
 use sp1_core::{SP1Prover, SP1Stdin, SP1Verifier};
 
 const ELF: &[u8] =
-    include_bytes!("../../ark_bn254_pairing_verifier/elf/riscv32im-succinct-zkvm-elf");
+    include_bytes!("../../risc0_fibonacci_verifier/elf/riscv32im-succinct-sp1-zkvm-elf");
 const RISC0_FIB_RECEIPT: &[u8] =
     include_bytes!("../../risc0_fibonacci_verifier/proving_data/risc0_fibo.proof");
 
@@ -10,6 +10,7 @@ fn main() {
     sp1_core::utils::setup_logger();
 
     let mut stdin = SP1Stdin::new();
+    println!("RECEIPT LEN: {}", RISC0_FIB_RECEIPT.len());
     stdin.write_slice(RISC0_FIB_RECEIPT);
 
     println!("Starting sp1 proof generation...");
