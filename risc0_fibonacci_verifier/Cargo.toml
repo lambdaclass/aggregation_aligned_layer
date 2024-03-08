@@ -4,9 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sp1-zkvm = { git = "https://github.com/lambdaclass/sp1.git", branch = "change-target-name" }
-# sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
+# sp1-zkvm = { git = "https://github.com/lambdaclass/sp1.git", branch = "change-target-name" }
+# sp1-zkvm = { git = "https://github.com/lambdaclass/sp1.git", branch = "risc0-compatibility" }
+sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
 # serde = "1.0"
 bincode = "1.3.3"
-risc0-zkvm = { version = "0.20.1", default-features = false }
-# risc0-zkvm = { git = "https://github.com/lambdaclass/risc0-bis/", branch = "dummy-feature", features = ["client", "dummy"] }
+# risc0-zkvm = { version = "0.20.1", default-features = false }
+# risc0-zkvm = { version = "0.20.1" }
+risc0-zkvm = { git = "https://github.com/lambdaclass/risc0-bis/", branch = "add-target-vendor", default-features = false }

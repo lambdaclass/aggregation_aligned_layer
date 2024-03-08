@@ -4,4 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sp1-core = { git = "https://github.com/lambdaclass/sp1.git", branch = "change-target-name" }
+#sp1-core = { git = "https://github.com/lambdaclass/sp1.git", branch = "change-target-name" }
+# sp1-core = { git = "https://github.com/lambdaclass/sp1.git", branch = "risc0-compatibility" }
+sp1-core= { git = "https://github.com/succinctlabs/sp1.git" }

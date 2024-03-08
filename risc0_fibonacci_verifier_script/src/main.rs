@@ -1,8 +1,7 @@
 //! A simple script to generate and verify the proof of a given program.
 use sp1_core::{SP1Prover, SP1Stdin, SP1Verifier};
 
-const ELF: &[u8] =
-    include_bytes!("../../risc0_fibonacci_verifier/elf/riscv32im-succinct-sp1-zkvm-elf");
+const ELF: &[u8] = include_bytes!("../../risc0_fibonacci_verifier/elf/riscv32im-succinct-zkvm-elf");
 const RISC0_FIB_RECEIPT: &[u8] =
     include_bytes!("../../risc0_fibonacci_verifier/proving_data/risc0_fibo.proof");
 
@@ -11,9 +10,11 @@ fn main() {
 
     let mut stdin = SP1Stdin::new();
     println!("RECEIPT LEN: {}", RISC0_FIB_RECEIPT.len());
+    println!("ELF LEN: {}", ELF.len());
+
     stdin.write_slice(RISC0_FIB_RECEIPT);
 
-    println!("Starting sp1 proof generation...");
+    println!("Starting SP1 proof generation...");
     let mut proof = SP1Prover::prove(ELF, stdin).expect("proving failed");
 
     let receipt_verification_result = proof.stdout.read::<bool>();
